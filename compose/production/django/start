@@ -10,4 +10,5 @@ if [ "$NOT_COLLECT_STATIC" != "True" ]; then
   python /app/manage.py collectstatic --noinput
 fi
 
-exec gunicorn config.wsgi --bind 0.0.0.0:5000 --chdir=/app
+exec gunicorn config.wsgi --bind 0.0.0.0:${PORT:-5000} --chdir=/app
+
